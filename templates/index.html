@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PrecisionCalc — Reverse Calculation</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🔢</div>
+      <div class="title">PrecisionCalc</div>
+    </div>
+    <nav class="nav-desktop" aria-label="Main Navigation">
+      <button class="nav-link" data-section="home">Home</button>
+      <button class="nav-link active" data-section="calculator">Calculator</button>
+      <button class="nav-link" data-section="history">History</button>
+      <button class="nav-link" data-section="about">About</button>
+    </nav>
+    <div class="toolbar">
+      <label class="select-label">Theme
+        <select id="theme-select" aria-label="Theme selector">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <label class="select-label">Font
+        <select id="font-select" aria-label="Font selector">
+          <option value="Inter, system-ui">Inter</option>
+          <option value="Poppins, system-ui">Poppins</option>
+          <option value="Roboto, system-ui">Roboto</option>
+          <option value="Arial, system-ui">Arial</option>
+        </select>
+      </label>
+      <button id="mobile-menu-btn" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <strong>Menu</strong>
+      <button id="close-drawer" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="drawer-nav">
+      <button class="drawer-link" data-section="home">Home</button>
+      <button class="drawer-link" data-section="calculator">Calculator</button>
+      <button class="drawer-link" data-section="history">History</button>
+      <button class="drawer-link" data-section="about">About</button>
+      <div class="drawer-settings">
+        <label>Theme
+          <select id="theme-select-2">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label>Font
+          <select id="font-select-2">
+            <option value="Inter, system-ui">Inter</option>
+            <option value="Poppins, system-ui">Poppins</option>
+            <option value="Roboto, system-ui">Roboto</option>
+            <option value="Arial, system-ui">Arial</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container">
+    <section id="home" class="panel hidden">
+      <h1>Welcome to PrecisionCalc</h1>
+      <p>Explore division, precision, and how rounding affects recovery.</p>
+    </section>
+
+    <section id="calculator" class="panel">
+      <div class="card calc-card">
+        <div class="card-header">
+          <h2>Reverse Calculation</h2>
+          <p class="muted">Explore Division, Precision & Recovery</p>
+        </div>
+
+        <form id="calc-form" class="calc-form" novalidate>
+          <div class="field">
+            <label for="number">Enter Number</label>
+            <input id="number" name="number" type="text" inputmode="decimal" placeholder="100" aria-describedby="number-help" />
+            <small id="number-help" class="muted">Original value to divide</small>
+            <div class="error" id="number-error" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="divisor">Enter Divisor</label>
+            <input id="divisor" name="divisor" type="text" inputmode="decimal" placeholder="3" aria-describedby="divisor-help" />
+            <small id="divisor-help" class="muted">Divisor (cannot be zero)</small>
+            <div class="error" id="divisor-error" aria-live="polite"></div>
+          </div>
+
+          <div class="field small">
+            <label for="precision">Display Precision</label>
+            <input id="precision" name="precision" type="number" min="0" max="10" value="1" />
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Calculate</button>
+            <button type="button" id="reset-btn" class="btn ghost">Reset</button>
+          </div>
+        </form>
+
+        <div id="result-flow" class="flow hidden" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="history" class="panel hidden">
+      <div class="card">
+        <div class="card-header">
+          <h2>History</h2>
+          <div class="history-actions">
+            <button id="clear-history" class="btn ghost">Clear All</button>
+          </div>
+        </div>
+        <div id="history-list" class="history-list"></div>
+      </div>
+    </section>
+
+    <section id="about" class="panel hidden">
+      <div class="card">
+        <h2>About</h2>
+        <p>PrecisionCalc demonstrates exact and displayed numerical values, and how rounding affects reverse calculations.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© PrecisionCalc — Example app</footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
