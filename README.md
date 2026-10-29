@@ -127,3 +127,15 @@ This project is a practical exercise in building a small Flask application, desi
 ## License
 
 No license is currently specified. Contact the repository owner before reusing this project.
+
+
+## Automated tests
+
+Install the dependencies and run the test suite:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -q
+```
+
+The API rejects non-finite values, overly large inputs, invalid precision, zero divisors, and non-JSON requests. The Flask development debugger is disabled by default; set `FLASK_DEBUG=1` only for local development.
